@@ -1,0 +1,125 @@
+[
+    {
+      "classImage": "https://images.unsplash.com/photo-1522410818928-5522dacd5066?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "className": "Painting Workshop",
+      "numberOfClasses": 5,
+      "price": 50,
+      "numberOfStudents": 10,
+      "instructorName": "John Smith",
+      "instructorImage": "https://media.istockphoto.com/id/1012048786/photo/painter-in-making-mode.jpg?s=1024x1024&w=is&k=20&c=SApUX_7SSiup73ZINRXoq3wkSVxzBdGvG48sQ7B9_6A=",
+      "availableSeats": 5,
+      "classDescription": "Learn the basics of painting techniques and create your own masterpiece."
+    },
+    {
+      "classImage": "https://media.istockphoto.com/id/1454926778/photo/a-man-in-old-medieval-byzantine-clothes-sits-behind-a-vintage-potters-wheel-and-makes-dishes.jpg?s=1024x1024&w=is&k=20&c=2tsCyr1d4A2NvOtfGH2zU2hQdaylZQXSvQhusoh1F2o=",
+      "className": "Pottery Class",
+      "numberOfClasses": 8,
+      "price": 75,
+      "numberOfStudents": 12,
+      "instructorName": "Sarah Johnson",
+      "instructorImage": "https://media.istockphoto.com/id/1404385471/photo/beautiful-young-woman-is-painting-a-ceramic-mug-in-workshop.jpg?s=1024x1024&w=is&k=20&c=-gsIJivSvwdeIhUqM8eUz_LzTxyZXvJ6JsjAxHvLmFk=",
+      "availableSeats": 4,
+      "classDescription": "Experience the joy of working with clay and create unique pottery pieces."
+    },
+    {
+      "classImage": "https://media.istockphoto.com/id/1403250565/photo/making-jewelry-with-beads.jpg?s=1024x1024&w=is&k=20&c=_10jHFAu-GL3gR0AXHdICsmOosAgQvLb0LNgSEcm5m4=",
+      "className": "Jewelry Making",
+      "numberOfClasses": 4,
+      "price": 60,
+      "numberOfStudents": 8,
+      "instructorName": "Emily Wilson",
+      "instructorImage": "https://media.istockphoto.com/id/1345339933/photo/female-small-business-owner-making-an-hadmade-custom-jewlery-in-her-home-workshop.jpg?s=1024x1024&w=is&k=20&c=zrAQEe0D6Bglnw07HlcP0_54qVYPa8DhUm1G6Tfp4AY=",
+      "availableSeats": 2,
+      "classDescription": "Design and create your own beautiful jewelry using various materials and techniques."
+    },
+    {
+      "classImage": "https://media.istockphoto.com/id/600099924/photo/knitting.jpg?s=1024x1024&w=is&k=20&c=LCgVPRnW63Ux_L6VBXJgd2Vtpr5QPe7EjJUYeUJUdTo=",
+      "className": "Knitting",
+      "numberOfClasses": 6,
+      "price": 80,
+      "numberOfStudents": 15,
+      "instructorName": "Michael Davis",
+      "instructorImage": "https://media.istockphoto.com/id/1356377377/photo/portrait-of-a-senior-woman-knitting-at-home.jpg?s=1024x1024&w=is&k=20&c=HetrW8YuiSd2q_vvDaU-mPjDGuzg2icBGKfDhU6ivO8=",
+      "availableSeats": 3,
+      "classDescription": "Learn the art of photography and capture stunning images using different camera techniques."
+    },
+    {
+      "classImage": "https://media.istockphoto.com/id/1340663769/photo/kids-molded-from-clay-at-pottery-class.jpg?s=1024x1024&w=is&k=20&c=wjiAX-rb0DklhT6TmLAGmWkeyRZyG6mAcxZ8ybi_BKo=",
+      "className": "Ceramic Sculpture",
+      "numberOfClasses": 7,
+      "price": 70,
+      "numberOfStudents": 10,
+      "instructorName": "Olivia Roberts",
+      "instructorImage": "https://media.istockphoto.com/id/1224889372/photo/male-sculptor-working-on-a-clay-bust.jpg?s=1024x1024&w=is&k=20&c=nxi-2EszroyY0LneQ6yk3UbS_p-Rodd9VhUhQKKhGzE=",
+      "availableSeats": 6,
+      "classDescription": "Create unique ceramic sculptures using hand-building techniques and glazing methods."
+    },
+    {
+      "classImage": "https://media.istockphoto.com/id/1200101413/photo/designer-desk-modern-apartment-planning-apartment-architecture-plans.jpg?s=1024x1024&w=is&k=20&c=4y6_PQP3jNExns4HbW9Z1w1_XYf8MIY80IwDJssG9iI=",
+      "className": "Drawing fundamentals",
+      "numberOfClasses": 4,
+      "price": 55,
+      "numberOfStudents": 12,
+      "instructorName": "David Thompson",
+      "instructorImage": "https://media.istockphoto.com/id/1083847032/photo/professional-designer-from-a-fashion-school-with-long-hair-making-needed-measurements.jpg?s=1024x1024&w=is&k=20&c=tRckGc6wryRd4mPQpMBwmUoKSnFORw1T649WbDRWMg0=",
+      "availableSeats": 0,
+      "classDescription": "Develop your drawing skills and learn various techniques to bring your ideas to life on paper."
+    },
+    {
+      "classImage": "https://media.istockphoto.com/id/1398316453/photo/hand-made-fabric-pumpkin-over-grey-knitted-blanket-for-fall-home-decoration.jpg?s=1024x1024&w=is&k=20&c=LZCoVKp4GcirAeQa8eRjhHhkgW60YO5EWuF-RfQkdis=",
+      "className": "Textile Crafts",
+      "numberOfClasses": 6,
+      "price": 65,
+      "numberOfStudents": 8,
+      "instructorName": "Sophia Anderson",
+      "instructorImage": "https://media.istockphoto.com/id/1289458939/photo/im-precise-women.jpg?s=1024x1024&w=is&k=20&c=XJq-yP94PnUF8DydbNEFQo-IlcdLE6bpXv3Tb11nSWU=",
+      "availableSeats": 2,
+      "classDescription": "Explore the world of textile arts and create unique fabric-based crafts using different techniques."
+    },
+    {
+      "classImage": "https://media.istockphoto.com/id/1351797786/photo/smiling-african-american-boy-carpenter-looks-at-his-own-wooden-house-that-helps-his-father.jpg?s=1024x1024&w=is&k=20&c=qyOUlFXNDQj7QTi-rfnoANo8ltNes6UN9rPDrXq1pRY=",
+      "className": "Woodworking",
+      "numberOfClasses": 5,
+      "price": 90,
+      "numberOfStudents": 6,
+      "instructorName": "Daniel Lee",
+      "instructorImage": "https://media.istockphoto.com/id/1458711335/photo/male-wood-furniture-joiner-work-in-diy-wooden-workshop-real-authentic-people-worker.jpg?s=1024x1024&w=is&k=20&c=3G166uWT-EFgNGyuflhViQJ6IwG7wZ4ufzVdbtznJMk=",
+      "availableSeats": 1,
+      "classDescription": "Learn the basics of woodworking and create your own wooden projects with expert guidance."
+    },
+    {
+      "classImage": "https://media.istockphoto.com/id/1270558747/photo/bars-of-handmade-soap-with-lavender.jpg?s=1024x1024&w=is&k=20&c=opLkVT95tfg7xMx9f9iqUTLptr0YrttCc2Z6EaY2bm0=",
+      "className": "Hand made soap",
+      "numberOfClasses": 7,
+      "price": 75,
+      "numberOfStudents": 10,
+      "instructorName": "Emma White",
+      "instructorImage": "https://media.istockphoto.com/id/1294520080/photo/asian-chinese-teenage-boy-learning-the-soap-making-process-from-female-artist.jpg?s=1024x1024&w=is&k=20&c=8h9lTIu6GXFbg_1EivRWlYwLtAgUE_UHELr2xtBwh_o=g",
+      "availableSeats": 5,
+      "classDescription": "Explore the art of sculpture and create three-dimensional works of art using different materials."
+    },
+    {
+      "classImage": "https://media.istockphoto.com/id/1297053244/photo/mother-and-kid-cutting-paper-and-making-collages.jpg?s=1024x1024&w=is&k=20&c=VvkK5ryzNrmt_aCAzgw1wDpyG1HtKDIVUUKKsmJJecM=",
+      "className": "Art with paper",
+      "numberOfClasses": 3,
+      "price": 45,
+      "numberOfStudents": 10,
+      "instructorName": "James Turner",
+      "instructorImage": "https://media.istockphoto.com/id/1368018580/photo/portrait-of-carefree-brunette-woman-blowing-at-paper-windmill-playing-with-pinwheel-toy-on.jpg?s=1024x1024&w=is&k=20&c=-atp5efC23Om31E4cvwt_ZpmG6waPNyyBWJad1zg94Q=",
+      "availableSeats": 3,
+      "classDescription": "Create stunning collages using a variety of materials and techniques to express your creativity."
+    },
+    {
+      "classImage": "https://media.istockphoto.com/id/1356341051/photo/candle-making-business.jpg?s=1024x1024&w=is&k=20&c=_jll-fqwYOiM42r1lRMHiuS7YZhCe-4oYrpMqilGyLc=",
+      "className": "Candle Making",
+      "numberOfClasses": 4,
+      "price": 60,
+      "numberOfStudents": 8,
+      "instructorName": "Mia Davis",
+      "instructorImage": "https://media.istockphoto.com/id/1316135243/photo/young-woman-producing-candles.jpg?s=1024x1024&w=is&k=20&c=TUb537Fuo3D91JvQPfCSFaXBDdq2j4QLtQxsMJrHlCg=",
+      "availableSeats": 2,
+      "classDescription": "Learn the art of candle making and create beautifully scented candles for your home."
+    }
+  
+  ]
+  

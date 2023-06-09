@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProviders";
@@ -38,8 +38,8 @@ const LogIn = () => {
           popup: "animate__animated animate__fadeOutUp",
         },
       });
-      navigate(from, { replace: true });
     });
+    navigate(from, { replace: true });
   };
 
   return (
@@ -49,17 +49,21 @@ const LogIn = () => {
         <div className="hero min-h-screen bg-base-200">
           <div className="hero-content ">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-              <form onSubmit={handleLogIn} className="card-body">
+              <form onSubmit={handleSubmit(handleLogIn)} className="card-body">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>
                   </label>
                   <input
-                    type="text"
+                    type="email"
                     name="email"
+                    {...register("email", { required: true })}
                     placeholder="email"
                     className="input input-bordered"
                   />
+                  {errors.email && (
+                    <span className="text-red-700">email is required</span>
+                  )}
                 </div>
                 <div className="form-control">
                   <label className="label">
@@ -68,13 +72,16 @@ const LogIn = () => {
                   <input
                     type="password"
                     name="password"
+                    {...register("password", {
+                      required: true,
+                    })}
                     placeholder="password"
                     className="input input-bordered"
                   />
-
                   {errors.password?.type === "required" && (
                     <p className="text-red-700">password is required</p>
                   )}
+
                   <label className="label">
                     <a href="#" className="label-text-alt link link-hover">
                       Forgot password?
@@ -90,7 +97,12 @@ const LogIn = () => {
               <div className="text-center">
                 <p>
                   <small>
-                    New Here? <Link to="/signup">create an account</Link>
+                    New Here?{" "}
+                    <Link to="/signup">
+                      <span className="text-blue-600 font-semibold underline">
+                        create an account
+                      </span>
+                    </Link>
                   </small>
                 </p>
               </div>
