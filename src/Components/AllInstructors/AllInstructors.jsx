@@ -1,11 +1,14 @@
+import React, { useContext, useState } from "react";
 import useAllData from "../../hooks/useAllData";
+import { AuthContext } from "../../Providers/AuthProviders";
 
-const PopularInstructers = () => {
+const AllInstructors = () => {
+  const [disabled, setDisabled] = useState(false);
+  const { user } = useContext(AuthContext);
   const [allData] = useAllData();
-
   return (
-    <div className="grid lg:grid-cols-3 gap-4">
-      {allData.slice(0, 6).map((data, index) => (
+    <div className="grid lg:grid-cols-2 gap-4">
+      {allData.map((data, index) => (
         <div key={index}>
           <div>
             <div className="card w-96 glass">
@@ -24,4 +27,4 @@ const PopularInstructers = () => {
   );
 };
 
-export default PopularInstructers;
+export default AllInstructors;

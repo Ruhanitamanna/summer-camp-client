@@ -23,34 +23,8 @@ const SignUp = () => {
   const onSubmit = (data) => {
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
-      console.log(loggedUser);
+      navigate("/");
     });
-    navigate("/");
-    //     updateUserProfile(data.name, data.photoUrl).then(() => {
-    //       const savedUser = { name: data.name, email: data.email };
-    //       fetch("http://localhost:5000/users", {
-    //         method: "POST",
-    //         headers: {
-    //           "content-type": "application/json",
-    //         },
-    //         body: JSON.stringify(savedUser),
-    //       })
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //           if (data.insertedId) {
-    //             reset();
-    //             Swal.fire({
-    //               position: "top-end",
-    //               icon: "success",
-    //               title: "user created successfully",
-    //               showConfirmButton: false,
-    //               timer: 1500,
-    //             });
-    //           }
-    //         })
-
-    //         .catch((error) => console.log(error));
-    //     });
   };
 
   return (

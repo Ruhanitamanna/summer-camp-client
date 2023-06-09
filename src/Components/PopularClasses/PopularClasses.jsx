@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const PopularClasses = () => {
   const [allData] = useAllData();
-  console.log(allData);
   return (
     <div>
       <div className="grid lg:grid-cols-3 gap-4">

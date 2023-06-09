@@ -16,38 +16,11 @@ const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="instructers">Instructers</Link>
+        <Link to="/instructors">Instructors</Link>
       </li>
       <li>
         {" "}
         <Link to="/classes">Classes</Link>
-      </li>
-
-      <li>
-        {" "}
-        {/* <Link to="/dashboard/myCart">
-          <button className="btn gap-2">
-            <FaShoppingCart />
-            <div className="badge badge-secondary">+{cart?.length || 0}</div>
-          </button>
-        </Link> */}
-      </li>
-
-      <li>
-        {user ? (
-          <>
-            <div className="flex">
-              <button onClick={handleLogOut} className="btn btn-ghost">
-                Log out
-              </button>
-              <img src={user?.photoURL} className="rounded-full w-8" alt="" />
-            </div>
-          </>
-        ) : (
-          <>
-            <Link to="/login">Log in</Link>
-          </>
-        )}
       </li>
     </>
   );
@@ -86,7 +59,33 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+          <ul>
+            <li>
+              {user ? (
+                <>
+                  <div className="flex">
+                    <li>
+                      <Link to="/dashboard">
+                        <button className="btn gap-2">Dashboard</button>
+                      </Link>
+                    </li>
+                    <button onClick={handleLogOut} className="btn btn-ghost">
+                      Log out
+                    </button>
+                    <img
+                      src={user?.photoURL}
+                      className="rounded-full w-8"
+                      alt=""
+                    />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <Link to="/login">Log in</Link>
+                </>
+              )}
+            </li>
+          </ul>
         </div>
       </div>
     </>

@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import useAllData from "../../hooks/useAllData";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 const AllClasses = () => {
+  const [disabled, setDisabled] = useState(false);
+  const { user } = useContext(AuthContext);
   const [allData] = useAllData();
-  console.log(allData);
+
   return (
     <div className="grid lg:grid-cols-2 gap-4">
       {allData.map((data, index) => (
@@ -30,9 +34,20 @@ const AllClasses = () => {
                   </div>
                 </div>
                 <div className="p-8 mt-4">
-                  <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">
-                    Responsive
-                  </button>
+                  {user ? (
+                    <Link to="/">
+                      <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">
+                        select
+                      </button>
+                    </Link>
+                  ) : (
+                    <button
+                      className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg"
+                      disabled
+                    >
+                      select
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
