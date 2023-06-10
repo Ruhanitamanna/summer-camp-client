@@ -4,7 +4,7 @@ import {
   FaHome,
   FaWallet,
   FaBookmark,
-  FaPeopleGroup,
+  FaPersonBooth,
 } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const DashBoard = () => {
     <div>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div className="drawer-content flex flex-col  ">
           {/* Page content here */}
           <Outlet></Outlet>
           <label
@@ -59,14 +59,11 @@ const DashBoard = () => {
             <li>
               <NavLink to="/instructors">
                 {" "}
-                <FaPeopleGroup></FaPeopleGroup>Instructors
+                <FaPersonBooth></FaPersonBooth> Instructors
               </NavLink>
             </li>
             <li>
-              <NavLink to="/">
-                {" "}
-                <FaHome></FaHome>Home
-              </NavLink>
+              <NavLink to="/classes"> Classes</NavLink>
             </li>
           </ul>
         </div>

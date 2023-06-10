@@ -9,6 +9,10 @@ const PopularClasses = () => {
   );
   return (
     <div className="mt-10 mx-auto">
+      <div className="text-center my-4 p-6">
+        <h1 className="text-4xl uppercase font-semibold">Popular classes </h1>
+      </div>
+      <div className="divider"></div>
       <div className="grid lg:grid-cols-3 gap-4">
         {sortedData.slice(0, 6).map((data, index) => (
           <div key={index}>

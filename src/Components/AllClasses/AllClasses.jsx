@@ -12,11 +12,11 @@ const AllClasses = () => {
   const location = useLocation();
 
   const handleSelect = (data) => {
-    console.log(data);
     if (user && user.email) {
       const selectedClass = {
         classId: data._id,
         className: data.className,
+        classImage: data.classImage,
         availableSeats: data.availableSeats,
         numberOfStudents: data.numberOfStudents,
         numberOfClasses: data.numberOfClasses,
@@ -64,15 +64,16 @@ const AllClasses = () => {
   return (
     <div>
       <div className="text-center">
-        <h1 className="text-4xl font-semibold m-6 p-6">
+        <h1 className="text-4xl font-semibold m-6 p-6 uppercase">
           Classes to Choose From
         </h1>
       </div>
+      <div className="divider"></div>
       <div className="grid lg:grid-cols-2 gap-6 my-8">
         {allData.map((data, index) => (
           <div key={index}>
             <div>
-              <div className="card card-side bg-blue-200 shadow-xl">
+              <div className="card card-side bg-blue-100 shadow-xl">
                 <figure>
                   <img className="w-36" src={data.classImage} alt="" />
                 </figure>

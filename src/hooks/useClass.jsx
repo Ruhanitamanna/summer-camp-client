@@ -5,7 +5,11 @@ import { useQuery } from "@tanstack/react-query";
 const useClass = () => {
   const { user } = useContext(AuthContext);
 
-  const { isLoading, refetch, isError, data, error } = useQuery({
+  const {
+    isLoading,
+    refetch,
+    data: item = [],
+  } = useQuery({
     queryKey: ["classes", user?.email],
     queryFn: async () => {
       const response = await fetch(
@@ -14,7 +18,7 @@ const useClass = () => {
       return response.json();
     },
   });
-  return [classes, refetch, isLoading];
+  return [item, refetch, isLoading];
 };
 
 export default useClass;
