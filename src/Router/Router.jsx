@@ -6,6 +6,8 @@ import SignUp from "../Components/SignUp/SignUp";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import AllClasses from "../Components/AllClasses/AllClasses";
 import AllInstructors from "../Components/AllInstructors/AllInstructors";
+import DashBoard from "../Layout/DashBoard";
+import MyClasses from "../Components/DashBord/MyClasses";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,16 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: <ErrorPage></ErrorPage>,
+  },
+  {
+    path: "dashboard",
+    element: <DashBoard></DashBoard>,
+    children: [
+      {
+        path: "myclasses",
+        element: <MyClasses></MyClasses>,
+      },
+    ],
   },
 ]);
 export default router;

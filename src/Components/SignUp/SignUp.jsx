@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProviders";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
-import "./SignUp.css";
+
 import registerImg from "../../assets/images/register.jpg";
 
 const SignUp = () => {
@@ -18,19 +18,24 @@ const SignUp = () => {
   } = useForm();
   const navigate = useNavigate();
 
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
 
   const onSubmit = (data) => {
-    createUser(data.email, data.password).then((result) => {
-      const loggedUser = result.user;
-      navigate("/");
-    });
+    createUser(data.email, data.password)
+      .then((result) => {
+        const loggedUser = result.user;
+        navigate("/");
+      })
+      .catch((error) => console.logError);
   };
 
   return (
     <>
-      <div className="bg-[registerImg]">
-        <div className="hero min-h-screen bg-base-200">
+      <div className="bg-blue-500 w-full">
+        <div
+          style={{ backgroundImage: `url${registerImg}` }}
+          className="hero min-h-screen  bg-blue-200"
+        >
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="w-50">
               <img className="w-30" src="" alt="" />
