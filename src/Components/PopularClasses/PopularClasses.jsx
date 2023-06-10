@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 
 const PopularClasses = () => {
   const [allData] = useAllData();
+  const sortedData = allData.sort(
+    (a, b) => b.numberOfStudents - a.numberOfStudents
+  );
   return (
     <div className="mt-10 mx-auto">
       <div className="grid lg:grid-cols-3 gap-4">
-        {allData.slice(0, 6).map((data, index) => (
+        {sortedData.slice(0, 6).map((data, index) => (
           <div key={index}>
             <div>
               <div className="card card-side bg-blue-100 shadow-xl">
@@ -17,10 +20,14 @@ const PopularClasses = () => {
                 <div className="card-body">
                   <h2 className="card-title">{data.className}</h2>
                   <p>
-                    <b>Price</b>: ${data.price}
+                    <b>Students</b>
+                    {data.numberOfStudents}
                   </p>
                   <p>
                     <b>Instructor</b>: {data.instructorName}
+                  </p>
+                  <p>
+                    <b>Price</b>: ${data.price}
                   </p>
                 </div>
               </div>
