@@ -1,5 +1,11 @@
 import React from "react";
-import { FaHome, FaWallet } from "react-icons/fa";
+import {
+  FaEtsy,
+  FaHome,
+  FaWallet,
+  FaBookmark,
+  FaPeopleGroup,
+} from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 
 const DashBoard = () => {
@@ -19,18 +25,41 @@ const DashBoard = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu my-8 p-4 w-80 h-full gap-4 bg-blue-200 text-base-content">
+
+          <ul className="menu my-8 px-4 py-10 w-80 h-full gap-4 bg-blue-200 text-base-content">
+            <div className="text-center">
+              <h3 className="text-2xl uppercase">Crafty</h3>
+              <p className="uppercase">summer Camp</p>
+            </div>
             {/* Sidebar content here */}
             <li>
-              <NavLink to="myclasses">My Selected Classes</NavLink>
+              <NavLink to="myclasses">
+                {" "}
+                <FaBookmark></FaBookmark> My Selected Classes
+              </NavLink>
             </li>
             <li>
-              <NavLink>My Enrolled Classes</NavLink>
+              <NavLink to="enrolled">
+                <FaEtsy></FaEtsy> My Enrolled Classes
+              </NavLink>
             </li>
             <li>
-              <NavLink>
+              <NavLink to="history">
                 {" "}
                 <FaWallet></FaWallet>Payment History
+              </NavLink>
+            </li>
+            <div className="divider"></div>
+            <li>
+              <NavLink to="/">
+                {" "}
+                <FaHome></FaHome>Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/instructors">
+                {" "}
+                <FaPeopleGroup></FaPeopleGroup>Instructors
               </NavLink>
             </li>
             <li>
