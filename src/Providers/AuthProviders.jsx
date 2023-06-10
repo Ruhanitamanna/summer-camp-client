@@ -58,7 +58,7 @@ const AuthProvider = ({ children }) => {
         localStorage.removeItem("access-token");
       }
 
-      //   if (currentUser) {
+      //   if (currentUser)
       //     axios
       //       .post("http://localhost:5000/jwt", { email: currentUser.email })
       //       .then((data) => {
