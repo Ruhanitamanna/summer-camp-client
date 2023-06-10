@@ -4,7 +4,7 @@ const PopularInstructers = () => {
   const [allData] = useAllData();
 
   return (
-    <div className="grid lg:grid-cols-3 gap-4">
+    <div className="grid lg:grid-cols-3 gap-4 mt-10">
       {allData.slice(0, 6).map((data, index) => (
         <div key={index}>
           <div>

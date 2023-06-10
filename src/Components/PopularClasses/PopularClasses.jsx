@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const PopularClasses = () => {
   const [allData] = useAllData();
   return (
-    <div>
+    <div className="mt-10 mx-auto">
       <div className="grid lg:grid-cols-3 gap-4">
         {allData.slice(0, 6).map((data, index) => (
           <div key={index}>
