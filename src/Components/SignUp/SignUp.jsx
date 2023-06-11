@@ -18,13 +18,38 @@ const SignUp = () => {
   } = useForm();
   const navigate = useNavigate();
 
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const onSubmit = (data) => {
     createUser(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;
-        navigate("/");
+        console.log(loggedUser);
+
+        updateUserProfile(data.name, data.photoURL).then(() => {
+          const saveUser = { name: data.name, email: data.email };
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "successfully registered",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/");
+              }
+            });
+        });
       })
       .catch((error) => console.logError);
   };

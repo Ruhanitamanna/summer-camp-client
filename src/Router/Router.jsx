@@ -11,6 +11,8 @@ import MyClasses from "../Components/DashBord/MyClasses";
 import EnrolledClasses from "../Components/DashBord/EnrolledClasses";
 
 import PaymentHistory from "../Components/DashBord/PaymentHistory";
+import PrivateRoute from "./PrivateRoute";
+import Allusers from "../Components/DashBord/AllUsers/Allusers";
 
 const router = createBrowserRouter([
   {
@@ -45,7 +47,11 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashBoard></DashBoard>,
+    element: (
+      <PrivateRoute>
+        <DashBoard></DashBoard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "myclasses",
@@ -58,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: "history",
         element: <PaymentHistory></PaymentHistory>,
+      },
+      {
+        path: "allUsers",
+        element: <Allusers></Allusers>,
       },
     ],
   },

@@ -20,26 +20,23 @@ const LogIn = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  const handleLogIn = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const email = form.email.value;
-    const password = form.password.value;
-    console.log(email, password);
-    signIn(email, password).then((result) => {
-      const user = result.user;
-      console.log(user);
-      Swal.fire({
-        title: "Successfully logged in",
-        showClass: {
-          popup: "animate__animated animate__fadeInDown",
-        },
-        hideClass: {
-          popup: "animate__animated animate__fadeOutUp",
-        },
-      });
-    });
-    navigate(from, { replace: true });
+  const onSubmit = (data) => {
+    signIn(data.email, data.password)
+      .then((result) => {
+        const loggedInUser = result.user;
+        if (loggedInUser) {
+          reset();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "successfully logged in",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+        navigate("/");
+      })
+      .catch((error) => console.logError);
   };
 
   return (
@@ -49,7 +46,7 @@ const LogIn = () => {
         <div className="hero min-h-screen bg-base-200">
           <div className="hero-content ">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-              <form onSubmit={handleSubmit(handleLogIn)} className="card-body">
+              <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>

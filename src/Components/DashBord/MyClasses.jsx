@@ -1,11 +1,36 @@
 import React from "react";
 import useClass from "../../hooks/useClass";
 import { FaTrash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const MyClasses = () => {
-  const [item] = useClass();
-  console.log(item);
+  const [item, refetch] = useClass();
+
   const total = item.reduce((sum, item) => item.price + sum, 0);
+
+  const handleDelete = (raw) => {
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/classes${raw._id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
   return (
     <div>
       <div className="text-center my-4 p-6">
@@ -15,7 +40,7 @@ const MyClasses = () => {
       </div>
       <div className="divider"></div>
       <div className="p-8">
-        <div className="flex justify-between p-8">
+        <div className="flex justify-between p-8 bg-blue-100">
           <h3 className="text-3xl">Total class : {item.length}</h3>
           <h3 className="text-3xl">Total price :${total}</h3>
         </div>
@@ -36,7 +61,7 @@ const MyClasses = () => {
               </thead>
               <tbody>
                 {item.map((raw, index) => (
-                  <tr key={index._id}>
+                  <tr key={index}>
                     <th>{index + 1}</th>
                     <td>
                       <div className="flex items-center space-x-3">
@@ -54,7 +79,10 @@ const MyClasses = () => {
                     <td className="text-end">{raw.availableSeats}</td>
                     <td className="text-end">${raw.price}</td>
                     <th>
-                      <button className="btn btn-ghost btn-sm">
+                      <button
+                        onSubmit={() => handleDelete(raw)}
+                        className="btn btn-ghost btn-sm"
+                      >
                         <FaTrash></FaTrash>
                       </button>
                     </th>

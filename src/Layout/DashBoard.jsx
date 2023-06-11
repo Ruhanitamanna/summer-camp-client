@@ -5,10 +5,14 @@ import {
   FaWallet,
   FaBookmark,
   FaPersonBooth,
+  FaUserCircle,
+  FaContao,
+  FaUsers,
 } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 
 const DashBoard = () => {
+  const isAdmin = true;
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -31,24 +35,77 @@ const DashBoard = () => {
               <h3 className="text-2xl uppercase">Crafty</h3>
               <p className="uppercase">summer Camp</p>
             </div>
-            {/* Sidebar content here */}
-            <li>
-              <NavLink to="myclasses">
+            {/* {isAdmin?(<></>): (isInstructor?<></>): (isStudent?<></>)} */}
+
+            {isAdmin ? (
+              <>
                 {" "}
-                <FaBookmark></FaBookmark> My Selected Classes
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="enrolled">
-                <FaEtsy></FaEtsy> My Enrolled Classes
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="history">
-                {" "}
-                <FaWallet></FaWallet>Payment History
-              </NavLink>
-            </li>
+                <li>
+                  <NavLink to="myclasses">
+                    {" "}
+                    <FaHome></FaHome> Admin Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="enrolled">
+                    <FaContao></FaContao>Manage Classes
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="history">
+                    {" "}
+                    <FaUserCircle></FaUserCircle>Manage Users
+                  </NavLink>
+                </li>
+              </>
+            ) : isInstructor ? (
+              <>
+                <li>
+                  <NavLink to="myclasses">
+                    {" "}
+                    <FaHome></FaHome>Instructor home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="enrolled">
+                    <FaUsers></FaUsers> Total Enrolled Students
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="history">
+                    {" "}
+                    <FaWallet></FaWallet>Payment History
+                  </NavLink>
+                </li>
+              </>
+            ) : isStudent ? (
+              <>
+                <li>
+                  <NavLink to="myclasses">
+                    {" "}
+                    <FaHome></FaHome> Students Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="myclasses">
+                    {" "}
+                    <FaBookmark></FaBookmark> My Selected Classes
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="enrolled">
+                    <FaEtsy></FaEtsy> My Enrolled Classes
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="history">
+                    {" "}
+                    <FaWallet></FaWallet>Payment History
+                  </NavLink>
+                </li>
+              </>
+            ) : null}
+
             <div className="divider"></div>
             <li>
               <NavLink to="/">

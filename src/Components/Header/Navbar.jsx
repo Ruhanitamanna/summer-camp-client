@@ -54,7 +54,9 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/">
-            <a className="btn btn-ghost normal-case text-xl">Crafty</a>
+            <a className="btn btn-ghost text-blue-600 text-xl uppercase">
+              Crafty
+            </a>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -68,7 +70,9 @@ const Navbar = () => {
                   <div className="flex">
                     <li>
                       <Link to="/dashboard">
-                        <button className="btn gap-2">Dashboard</button>
+                        <button className="btn bg-blue-600 gap-2">
+                          Dashboard
+                        </button>
                       </Link>
                     </li>
                     <button onClick={handleLogOut} className="btn btn-ghost">

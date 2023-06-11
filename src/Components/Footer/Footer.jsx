@@ -2,9 +2,11 @@ const Footer = () => {
   return (
     <footer className="footer footer-center p-10  bg-neutral text-neutral-content">
       <div>
-        <img className="w-10 rounded-full" src="image" alt="img" />
+        <h1 className="text=6xl uppercase font-bold text-blue-600">
+          Crafty <br />
+          summer camp
+        </h1>
         <p className="font-bold">
-          TOY CITY Industries Ltd. <br />
           Contact Number: +1 (555) 123-4567 <br />
           Address: 123 Main Street, Anytown, USA 12345
         </p>

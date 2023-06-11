@@ -12,8 +12,11 @@ const useClass = () => {
   } = useQuery({
     queryKey: ["classes", user?.email],
     queryFn: async () => {
+      if (!user || !user.email) {
+        return [];
+      }
       const response = await fetch(
-        `http://localhost:5000/classes?email=${user.email}`
+        `http://localhost:5000/classes?email=${user?.email}`
       );
       return response.json();
     },
