@@ -7,7 +7,7 @@ const PopularInstructers = () => {
   );
 
   return (
-    <div>
+    <div className="m-8">
       <div className="text-center my-4 p-6">
         <h1 className="text-4xl uppercase font-semibold">Popular classes </h1>
       </div>
@@ -16,7 +16,7 @@ const PopularInstructers = () => {
         {sortedData.slice(0, 6).map((data, index) => (
           <div key={index}>
             <div>
-              <div className="card w-96 glass bg-blue-100">
+              <div className="card w-96 glass bg-blue-100 p-6">
                 <figure>
                   <img src={data.instructorImage} alt="car!" />
                 </figure>

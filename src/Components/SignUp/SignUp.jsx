@@ -7,8 +7,6 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProviders";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
 
-import registerImg from "../../assets/images/register.jpg";
-
 const SignUp = () => {
   const {
     register,

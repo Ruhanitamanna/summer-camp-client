@@ -52,7 +52,7 @@ const DashBoard = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="history">
+                  <NavLink to="allUsers">
                     {" "}
                     <FaUserCircle></FaUserCircle>Manage Users
                   </NavLink>
