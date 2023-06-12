@@ -18,7 +18,7 @@ const PopularClasses = () => {
           {sortedData.slice(0, 6).map((data, index) => (
             <div key={index}>
               <div>
-                <div className="card card-side bg-blue-100 shadow-xl p-4">
+                <div className="card card-side bg-blue-100 hover shadow-xl p-4">
                   <figure>
                     <img src={data.classImage} alt="" />
                   </figure>

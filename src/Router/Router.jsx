@@ -13,6 +13,7 @@ import EnrolledClasses from "../Components/DashBord/EnrolledClasses";
 import PaymentHistory from "../Components/DashBord/PaymentHistory";
 import PrivateRoute from "./PrivateRoute";
 import Allusers from "../Components/DashBord/AllUsers/Allusers";
+import InstructorsPage from "../Components/DashBord/AllUsers/InstructorsPage";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/instructors",
-        element: <AllInstructors></AllInstructors>,
+        element: <InstructorsPage></InstructorsPage>,
       },
     ],
   },
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: "allUsers",
         element: <Allusers></Allusers>,
+      },
+      {
+        path: "instructors",
+        element: <InstructorsPage></InstructorsPage>,
       },
     ],
   },

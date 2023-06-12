@@ -34,16 +34,16 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
+
+  const logOut = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
   const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
     });
-  };
-
-  const logOut = () => {
-    setLoading(true);
-    return signOut(auth);
   };
 
   useEffect(() => {

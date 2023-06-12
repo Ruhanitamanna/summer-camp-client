@@ -1,17 +1,67 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import { FaUser, FaUsers } from "react-icons/fa";
+import Swal from "sweetalert2";
+import InstructorsPage from "./InstructorsPage";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Allusers = () => {
+  const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(["users"], async () => {
-    const res = await fetch("http://localhost:5000/users");
-    return res.json();
+    const res = await axiosSecure.get("/users");
+    return res.data;
   });
 
-  const handleMakeAdmin = (id) => {};
+  const [disabledUser, setDisabledUser] = useState([]);
+  const [instructors, setInstructors] = useState([]);
 
-  const handleMakeInstructor = (id) => {};
+  const handleMakeAdmin = (user) => {
+    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          setDisabledUser([...disabledUser, user._id]);
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${user.name} is Admin now`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
 
+  const handleMakeInstructor = (user) => {
+    fetch(`http://localhost:5000/users/Instructor/${user._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.matchedCount > 0) {
+          refetch();
+          setDisabledUser([...disabledUser, user._id]);
+          setInstructors([...instructors, user]);
+
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${user.name} is an instructor`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
+
+  const isUserDisabled = (userId) => {
+    return disabledUser.includes(userId);
+  };
   return (
     <div>
       <div className="text-center my-4 p-6">
@@ -46,20 +96,22 @@ const Allusers = () => {
                     "admin"
                   ) : (
                     <button
-                      onClick={() => handleMakeAdmin(user._id)}
+                      onClick={() => handleMakeAdmin(user)}
                       className="btn btn-circle btn-outline"
+                      disabled={isUserDisabled(user._id)}
                     >
                       <FaUser></FaUser>
                     </button>
                   )}
                 </td>
                 <td>
-                  {user.role === "instructre" ? (
-                    "instructer"
+                  {user.role === "instructor" ? (
+                    "instructor"
                   ) : (
                     <button
-                      onClick={() => handleMakeInstructor(user._id)}
+                      onClick={() => handleMakeInstructor(user)}
                       className="btn btn-square btn-outline"
+                      disabled={isUserDisabled(user._id)}
                     >
                       <FaUsers></FaUsers>
                     </button>
@@ -71,6 +123,10 @@ const Allusers = () => {
             {/* row 3 */}
           </tbody>
         </table>
+      </div>
+
+      <div>
+        <InstructorsPage instructors={instructors} />
       </div>
     </div>
   );

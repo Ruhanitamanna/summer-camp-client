@@ -42,7 +42,10 @@ const LogIn = () => {
   return (
     <>
       <div>
-        <h1 className="text-3xl">Please LOG in here</h1>
+        <div className="text-center m-4 p-4 bg-blue-200">
+          <h1 className="text-4xl font-semibold">Please Log in</h1>
+        </div>
+        <div className="divider"></div>
         <div className="hero min-h-screen bg-base-200">
           <div className="hero-content ">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

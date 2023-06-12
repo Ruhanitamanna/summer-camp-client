@@ -54,11 +54,12 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="bg-blue-500 w-full">
-        <div
-          style={{ backgroundImage: `url${registerImg}` }}
-          className="hero min-h-screen  bg-blue-200"
-        >
+      <div className="text-center m-4 p-4 bg-blue-200">
+        <h1 className="text-4xl uppercase font-semibold">Please signup</h1>
+      </div>
+      <div className="divider"></div>
+      <div className=" w-full">
+        <div className="hero min-h-screen ">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="w-50">
               <img className="w-30" src="" alt="" />

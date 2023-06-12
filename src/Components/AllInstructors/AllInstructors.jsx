@@ -3,14 +3,13 @@ import useAllData from "../../hooks/useAllData";
 import { AuthContext } from "../../Providers/AuthProviders";
 
 const AllInstructors = () => {
-  const [disabled, setDisabled] = useState(false);
   const { user } = useContext(AuthContext);
   const [allData] = useAllData();
   return (
     <div>
       <div className="text-center my-4 p-6">
         <h1 className="text-4xl uppercase font-semibold">
-          Our Respected Instructors{" "}
+          Our Respected Instructors
         </h1>
       </div>
       <div className="divider"></div>
@@ -26,6 +25,7 @@ const AllInstructors = () => {
                   <div className="card-body">
                     <h2 className="card-title">{data.instructorName}</h2>
                     <p>{data.className}</p>
+                    <p>{user?.email}</p>
                   </div>
                 </div>
               </div>

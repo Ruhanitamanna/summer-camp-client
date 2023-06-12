@@ -7,14 +7,14 @@ const ErrorPage = () => {
       <div className="text-center">
         <Link to="/">
           {" "}
-          <button className="btn btn-secondary"> Go Back to Home</button>
+          <button className="btn btn-primary"> Back to Home</button>
         </Link>
       </div>
       <br />
       <br />
       <div>
         <img
-          src="https://media.istockphoto.com/id/1204713198/photo/3d-word-error-with-computer-mouse-on-chalkboard-background-3d-rendering.jpg?s=1024x1024&w=is&k=20&c=1whVhS8dIMvKBCZIGJFfjMAlE-jnMWg5lTHb47Skt2s="
+          src="https://media.istockphoto.com/id/155597883/photo/error-message.jpg?s=1024x1024&w=is&k=20&c=APjhO7yi6cnJ7s_SOKSEGxmyklrbBwUjxLhFXDJVIkQ="
           alt=""
         />
       </div>
