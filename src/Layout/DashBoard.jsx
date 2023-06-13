@@ -12,17 +12,15 @@ import {
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
+import anime from "animejs/lib/anime.es.js";
 
 const DashBoard = () => {
   const [isAdmin, isAdminLoading] = useAdmin();
   const [isInstructor, isInstructorLoading] = useInstructor();
+  // const anime =
 
   if (isAdminLoading || isInstructorLoading) {
-    return (
-      <div>
-        <span className="loading loading-bars loading-xs"></span>
-      </div>
-    );
+    return <span className="loading loading-bars loading-md"></span>;
   }
 
   let content;
@@ -69,11 +67,6 @@ const DashBoard = () => {
   } else {
     content = (
       <>
-        <li>
-          <NavLink to="allUsers">
-            <FaUserCircle></FaUserCircle> Manage Users
-          </NavLink>
-        </li>
         <li>
           <NavLink to="myclasses">
             <FaBookmark></FaBookmark> My Selected Classes

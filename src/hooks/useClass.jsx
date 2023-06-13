@@ -19,7 +19,7 @@ const useClass = () => {
         return [];
       }
       const response = await axiosSecure(`/classes?email=${user?.email}`);
-      return response.json();
+      return response.data;
     },
   });
   return [item, refetch, isLoading];

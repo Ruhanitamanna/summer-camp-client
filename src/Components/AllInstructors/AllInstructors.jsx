@@ -1,16 +1,17 @@
 import React, { useContext, useState } from "react";
 import useAllData from "../../hooks/useAllData";
 import { AuthContext } from "../../Providers/AuthProviders";
+import { Fade } from "react-awesome-reveal";
 
 const AllInstructors = () => {
   const { user } = useContext(AuthContext);
   const [allData] = useAllData();
   return (
     <div>
-      <div className="text-center my-4 p-6">
-        <h1 className="text-4xl uppercase font-semibold">
-          Our Respected Instructors
-        </h1>
+      <div className="text-center m-4 p-4 bg-blue-200">
+        <Fade>
+          <h1 className="text-4xl uppercase font-semibold">Our instructors</h1>
+        </Fade>
       </div>
       <div className="divider"></div>
       <div>

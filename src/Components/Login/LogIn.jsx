@@ -24,6 +24,7 @@ const LogIn = () => {
     signIn(data.email, data.password)
       .then((result) => {
         const loggedInUser = result.user;
+        console.log(loggedInUser);
         if (loggedInUser) {
           reset();
           Swal.fire({
@@ -36,7 +37,7 @@ const LogIn = () => {
         }
         navigate("/");
       })
-      .catch((error) => console.logError);
+      .catch((error) => console.error(error));
   };
 
   return (

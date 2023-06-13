@@ -54,9 +54,9 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/">
-            <a className="btn btn-ghost text-blue-600 text-xl uppercase">
+            <button className="btn btn-ghost text-blue-600 text-xl uppercase">
               Crafty
-            </a>
+            </button>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -68,13 +68,12 @@ const Navbar = () => {
               {user ? (
                 <>
                   <div className="flex">
-                    <li>
-                      <Link to="/dashboard">
-                        <button className="btn bg-blue-600 gap-2">
-                          Dashboard
-                        </button>
-                      </Link>
-                    </li>
+                    <Link to="/dashboard">
+                      <button className="btn bg-blue-600 gap-2">
+                        Dashboard
+                      </button>
+                    </Link>
+
                     <button onClick={handleLogOut} className="btn btn-ghost">
                       Log out
                     </button>

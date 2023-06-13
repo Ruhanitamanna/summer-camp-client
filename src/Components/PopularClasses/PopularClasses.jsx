@@ -1,6 +1,7 @@
 import React from "react";
 import useAllData from "../../hooks/useAllData";
 import { Link } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 
 const PopularClasses = () => {
   const [allData] = useAllData();
@@ -10,8 +11,12 @@ const PopularClasses = () => {
   return (
     <div className="m-10 ">
       <div>
-        <div className="text-center my-4 p-6">
-          <h1 className="text-4xl uppercase font-semibold">Popular classes </h1>
+        <div className="text-center m-4 p-4 bg-blue-200">
+          <Fade>
+            <h1 className="text-4xl uppercase font-semibold">
+              popular classes
+            </h1>
+          </Fade>
         </div>
         <div className="divider"></div>
         <div className="grid lg:grid-cols-3 gap-4">

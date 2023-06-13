@@ -2,9 +2,12 @@ import React from "react";
 import useClass from "../../hooks/useClass";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const MyClasses = () => {
   const [item, refetch] = useClass();
+  const [axiosSecure] = useAxiosSecure();
 
   const total = item.reduce((sum, item) => item.price + sum, 0);
 
@@ -18,9 +21,8 @@ const MyClasses = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/classes${raw._id}`, {
-          method: "DELETE",
-        })
+        axiosSecure
+          .delete(`/classes/${raw._id}`, {})
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -87,9 +89,11 @@ const MyClasses = () => {
                       </button>
                     </th>
                     <th>
-                      <button className="btn btn-ghost bg-blue-200 btn-sm">
-                        Pay
-                      </button>
+                      <Link to="/dashboard/payment">
+                        <button className="btn btn-ghost bg-blue-200 btn-sm">
+                          Pay
+                        </button>
+                      </Link>
                     </th>
                   </tr>
                 ))}

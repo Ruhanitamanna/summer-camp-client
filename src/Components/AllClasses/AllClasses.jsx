@@ -3,6 +3,7 @@ import useAllData from "../../hooks/useAllData";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
+import { Fade } from "react-awesome-reveal";
 
 const AllClasses = () => {
   const [disabled, setDisabled] = useState(false);
@@ -63,10 +64,10 @@ const AllClasses = () => {
 
   return (
     <div>
-      <div className="text-center">
-        <h1 className="text-4xl font-semibold m-6 p-6 uppercase">
-          Classes to Choose From
-        </h1>
+      <div className="text-center m-4 p-4 bg-blue-200">
+        <Fade>
+          <h1 className="text-4xl uppercase font-semibold">popular classes</h1>
+        </Fade>
       </div>
       <div className="divider"></div>
       <div className="grid lg:grid-cols-2 gap-6 my-8">
