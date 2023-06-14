@@ -43,11 +43,6 @@ const DashBoard = () => {
     content = (
       <>
         <li>
-          <NavLink to="myclasses">
-            <FaHome></FaHome> Instructor Home
-          </NavLink>
-        </li>
-        <li>
           <NavLink to="enrolled">
             <FaUsers></FaUsers> Total Enrolled Students
           </NavLink>

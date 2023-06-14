@@ -4,7 +4,7 @@ const InstructorsPage = ({ instructors }) => {
   console.log(instructors);
   return (
     <div>
-      {/* <div className="text-center my-4 p-6">
+      <div className="text-center my-4 p-6">
         <h1 className="text-4xl uppercase font-semibold">
           Our Respected Instructors
         </h1>
@@ -25,7 +25,7 @@ const InstructorsPage = ({ instructors }) => {
             </div>
           </div>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };

@@ -16,9 +16,12 @@ const Allusers = () => {
   const [instructors, setInstructors] = useState([]);
 
   const handleMakeAdmin = (user) => {
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://summer-camp-server-umber.vercel.app/users/admin/${user._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -37,9 +40,12 @@ const Allusers = () => {
   };
 
   const handleMakeInstructor = (user) => {
-    fetch(`http://localhost:5000/users/Instructor/${user._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://summer-camp-server-umber.vercel.app/users/Instructor/${user._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

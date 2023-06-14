@@ -13,6 +13,7 @@ import Allusers from "../Components/DashBord/AllUsers/Allusers";
 import InstructorsPage from "../Components/DashBord/AllUsers/InstructorsPage";
 import Payment from "../Components/DashBord/Payment";
 import AdminRoute from "./AdminRoute";
+import AllInstructors from "../Components/AllInstructors/AllInstructors";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/instructors",
-        element: <InstructorsPage></InstructorsPage>,
+        element: <AllInstructors></AllInstructors>,
       },
     ],
   },

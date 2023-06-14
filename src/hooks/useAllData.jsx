@@ -6,7 +6,7 @@ const useAllData = () => {
   //     isLoading: loading,
   //     refetch,
   //   } = useQuery(["allData"], async () => {
-  //     const res = await fetch("http://localhost:5000/allData");
+  //     const res = await fetch("https://summer-camp-server-umber.vercel.app/allData");
   //     return res.json();
   //   });
   //   return [allData, loading, refetch];
@@ -17,7 +17,9 @@ const useAllData = () => {
   } = useQuery({
     queryKey: ["allData"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/allData");
+      const res = await fetch(
+        "https://summer-camp-server-umber.vercel.app/allData"
+      );
       return res.json();
     },
   });
