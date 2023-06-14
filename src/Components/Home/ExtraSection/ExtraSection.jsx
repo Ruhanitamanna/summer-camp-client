@@ -13,7 +13,7 @@ const ExtraSection = () => {
       </div>
       <div className="divider"></div>
 
-      <div className="mx-auto ">
+      <div className="mx-auto">
         <div className="carousel carousel-end rounded-box p-100 gap-4 ">
           <div className="carousel-item ">
             <img
