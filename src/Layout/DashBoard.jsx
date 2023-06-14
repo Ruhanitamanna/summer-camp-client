@@ -28,11 +28,6 @@ const DashBoard = () => {
     content = (
       <>
         <li>
-          <NavLink to="myclasses">
-            <FaHome></FaHome> Admin Home
-          </NavLink>
-        </li>
-        <li>
           <NavLink to="enrolled">
             <FaContao></FaContao> Manage Classes
           </NavLink>

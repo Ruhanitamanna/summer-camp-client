@@ -4,6 +4,7 @@ import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
 
 const MyClasses = () => {
   const [item, refetch] = useClass();
@@ -11,7 +12,11 @@ const MyClasses = () => {
 
   const total = item.reduce((sum, item) => item.price + sum, 0);
 
-  const handleDelete = (raw) => {
+  const deleteClassMutation = useMutation((classId) =>
+    axiosSecure.delete(`/classes/${classId}`)
+  );
+
+  const handleDelete = (classId) => {
     Swal.fire({
       title: "Are you sure?",
       icon: "warning",
@@ -21,15 +26,8 @@ const MyClasses = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure
-          .delete(`/classes/${raw._id}`, {})
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount > 0) {
-              refetch();
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
-            }
-          });
+        deleteClassMutation.mutate(classId);
+        refetch();
       }
     });
   };
@@ -82,14 +80,14 @@ const MyClasses = () => {
                     <td className="text-end">${raw.price}</td>
                     <th>
                       <button
-                        onSubmit={() => handleDelete(raw)}
+                        onClick={() => handleDelete(raw._id)}
                         className="btn btn-ghost btn-sm"
                       >
                         <FaTrash></FaTrash>
                       </button>
                     </th>
                     <th>
-                      <Link to="/dashboard/payment">
+                      <Link to={`/dashboard/payment?id=${raw._id}`}>
                         <button className="btn btn-ghost bg-blue-200 btn-sm">
                           Pay
                         </button>
