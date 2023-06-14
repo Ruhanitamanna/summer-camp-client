@@ -13,7 +13,46 @@ const ExtraSection = () => {
       </div>
       <div className="divider"></div>
 
-      <div className="mx-auto">
+      <div className="flex sm:flex-none justify-between">
+        <div className="card w-96 bg-blue-100 shadow-xl">
+          <figure className="px-10 pt-10">
+            <img
+              src="https://media.istockphoto.com/id/1370052429/photo/smiling-asian-girl-birdhouse-painting.jpg?s=1024x1024&w=is&k=20&c=eiAc-nbKsKFrJtZYk95zwG0pF6a0zcWKrf2PChHUGAo="
+              alt="Shoes"
+              className="rounded-xl"
+            />
+          </figure>
+          <div className="card-body items-center text-center">
+            <h2 className="card-title">Indoor Games</h2>
+          </div>
+        </div>
+        <div className="card w-96 bg-blue-100 shadow-xl">
+          <figure className="px-10 pt-10">
+            <img
+              src="https://media.istockphoto.com/id/505936431/photo/children-having-sack-race-in-field.webp?s=1024x1024&w=is&k=20&c=tijMv8JcpOrcPH4TE4LMomc8NVwEeYruwORlnopW4rM="
+              alt="Shoes"
+              className="rounded-xl"
+            />
+          </figure>
+          <div className="card-body items-center text-center">
+            <h2 className="card-title">Outdoor games!</h2>
+          </div>
+        </div>
+        <div className="card w-96 bg-blue-100 shadow-xl">
+          <figure className="px-10 pt-10">
+            <img
+              src="https://media.istockphoto.com/id/1301652998/photo/wha-did-you-find-in-your-net.jpg?s=1024x1024&w=is&k=20&c=txKSFplwV-zO-hsTCDzFnqOp2b7WbWAWZ4Ic6lE5Dc0="
+              alt="Shoes"
+              className="rounded-xl"
+            />
+          </figure>
+          <div className="card-body items-center text-center">
+            <h2 className="card-title">Fishing!</h2>
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="mx-auto">
         <div className="carousel carousel-end rounded-box p-100 gap-4 ">
           <div className="carousel-item ">
             <img
@@ -58,7 +97,7 @@ const ExtraSection = () => {
             />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

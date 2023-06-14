@@ -9,7 +9,9 @@ const PopularInstructers = () => {
   return (
     <div className="m-8">
       <div className="text-center my-4 p-6">
-        <h1 className="text-4xl uppercase font-semibold">Popular classes </h1>
+        <h1 className="text-4xl bg-blue-200 p-4 uppercase font-semibold">
+          Popular INstructors{" "}
+        </h1>
       </div>
       <div className="divider"></div>
       <div className="grid lg:grid-cols-3 gap-4 mt-10">
