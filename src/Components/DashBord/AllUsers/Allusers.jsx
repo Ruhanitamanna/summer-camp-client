@@ -130,10 +130,6 @@ const Allusers = () => {
           </tbody>
         </table>
       </div>
-
-      <div>
-        <InstructorsPage instructors={instructors} />
-      </div>
     </div>
   );
 };
