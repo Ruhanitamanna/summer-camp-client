@@ -15,6 +15,7 @@ const MyClasses = () => {
   const [item, refetch] = useClass();
   const [axiosSecure] = useAxiosSecure();
   const [selectedClass, setSelectedClass] = useState(0);
+  const [closeModal, setCloseModal] = useState(false);
 
   const total = item.reduce((sum, item) => item.price + sum, 0);
 
@@ -36,6 +37,11 @@ const MyClasses = () => {
         refetch();
       }
     });
+  };
+
+  const handleCloseModal = () => {
+    setCloseModal(true);
+    window.my_modal_3.close();
   };
   return (
     <div>
@@ -113,11 +119,13 @@ const MyClasses = () => {
       </div>
       <dialog id="my_modal_3" className="modal">
         <div method="dialog" className="modal-box">
-          <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+          <button
+            onClick={handleCloseModal}
+            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+          >
             ✕
           </button>
 
-          <div></div>
           {selectedClass && (
             <Elements stripe={stripePromise}>
               <CheckoutForm selectedClass={selectedClass}></CheckoutForm>

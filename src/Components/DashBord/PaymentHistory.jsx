@@ -3,7 +3,12 @@ import React from "react";
 const PaymentHistory = () => {
   return (
     <div>
-      <h1>dropping all my money</h1>
+      <div className="text-center my-4 p-6">
+        <h1 className="text-4xl uppercase font-semibold">
+          Classes that i Chosen{" "}
+        </h1>
+      </div>
+      <div className="divider"></div>
     </div>
   );
 };
