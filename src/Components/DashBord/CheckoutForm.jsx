@@ -2,8 +2,9 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { AuthContext } from "../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 
-const CheckoutForm = ({ price }) => {
+const CheckoutForm = ({ selectedClass }) => {
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useContext(AuthContext);
@@ -12,10 +13,13 @@ const CheckoutForm = ({ price }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
+  const price = selectedClass.price;
+
+  console.log(price);
 
   useEffect(() => {
     axiosSecure.post("/create-payment-intent", { price }).then((res) => {
-      console.log(res.data.clientSecret);
+      // console.log(res.data);
       setClientSecret(res.data.clientSecret);
     });
   }, []);
@@ -42,7 +46,7 @@ const CheckoutForm = ({ price }) => {
       console.log("error :", error);
     } else {
       setCardError("");
-      console.log(paymentMethod);
+      // console.log(paymentMethod);
     }
     setProcessing(true);
 
@@ -57,6 +61,8 @@ const CheckoutForm = ({ price }) => {
         },
       });
 
+    // console.log(paymentIntent);
+
     if (confirmError) {
       console.log("confirmError", confirmError);
     }
@@ -64,6 +70,30 @@ const CheckoutForm = ({ price }) => {
     setProcessing(false);
     if (paymentIntent.status === "succeeded") {
       setTransactionId(paymentIntent.id);
+      const payment = {
+        email: user?.email,
+        transactionId: paymentIntent.id,
+        price,
+        date: new Date(),
+        availableSeat: selectedClass.availableSeats - 1,
+        className: selectedClass.className,
+        class: selectedClass._id,
+        classId: selectedClass.classId,
+      };
+
+      axiosSecure.post("/payments", payment).then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your Payment is Successful",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+      // console.log(transactionId);
     }
   };
 
@@ -89,12 +119,17 @@ const CheckoutForm = ({ price }) => {
         <button
           className="btn btn-outline bg-blue-200 mt-20"
           type="submit"
-          disabled={!stripe}
+          disabled={!stripe || !clientSecret || processing}
         >
           Pay
         </button>
       </form>
       {cardError && <p className="text-red-600">{cardError}</p>}
+      {transactionId && (
+        <p className="text-green-500">
+          Transaction complete with transactionId: {transactionId}
+        </p>
+      )}
     </div>
   );
 };

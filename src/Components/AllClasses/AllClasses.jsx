@@ -11,6 +11,7 @@ const AllClasses = () => {
   const [allData] = useAllData();
   const navigate = useNavigate();
   const location = useLocation();
+  // const history = useHistory();
 
   const handleSelect = (data) => {
     if (user && user.email) {
@@ -48,7 +49,6 @@ const AllClasses = () => {
     } else {
       Swal.fire({
         title: "please log in to add a class",
-
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",

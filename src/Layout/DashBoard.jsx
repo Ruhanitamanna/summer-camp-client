@@ -12,12 +12,10 @@ import {
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
-import anime from "animejs/lib/anime.es.js";
 
 const DashBoard = () => {
   const [isAdmin, isAdminLoading] = useAdmin();
   const [isInstructor, isInstructorLoading] = useInstructor();
-  // const anime =
 
   if (isAdminLoading || isInstructorLoading) {
     return <span className="loading loading-bars loading-md"></span>;
@@ -28,7 +26,7 @@ const DashBoard = () => {
     content = (
       <>
         <li>
-          <NavLink to="enrolled">
+          <NavLink to="manageClasses">
             <FaContao></FaContao> Manage Classes
           </NavLink>
         </li>
@@ -43,13 +41,14 @@ const DashBoard = () => {
     content = (
       <>
         <li>
-          <NavLink to="enrolled">
-            <FaUsers></FaUsers> Total Enrolled Students
+          <NavLink to="addAClass">
+            <FaWallet></FaWallet>Add a Class
           </NavLink>
         </li>
+
         <li>
-          <NavLink to="history">
-            <FaWallet></FaWallet> Payment History
+          <NavLink to="myClasses">
+            <FaUsers></FaUsers> My Classes
           </NavLink>
         </li>
       </>
@@ -58,7 +57,7 @@ const DashBoard = () => {
     content = (
       <>
         <li>
-          <NavLink to="myclasses">
+          <NavLink to="mySelectedClasses">
             <FaBookmark></FaBookmark> My Selected Classes
           </NavLink>
         </li>

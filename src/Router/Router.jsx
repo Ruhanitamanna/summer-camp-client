@@ -11,9 +11,14 @@ import EnrolledClasses from "../Components/DashBord/EnrolledClasses";
 import PaymentHistory from "../Components/DashBord/PaymentHistory";
 import Allusers from "../Components/DashBord/AllUsers/Allusers";
 import InstructorsPage from "../Components/DashBord/AllUsers/InstructorsPage";
-import Payment from "../Components/DashBord/Payment";
+// import Payment from "../Components/DashBord/Payment";
 import AdminRoute from "./AdminRoute";
 import AllInstructors from "../Components/AllInstructors/AllInstructors";
+import AddAClass from "../Components/DashBord/AllUsers/AddAClass";
+import MyClassesInstructor from "../Components/DashBord/AllUsers/MyClassesInstructor";
+import InstructorRoute from "./InstructorRoute";
+
+import ManageClasses from "../Components/DashBord/AllUsers/ManageClasses";
 
 const router = createBrowserRouter([
   {
@@ -50,8 +55,9 @@ const router = createBrowserRouter([
     path: "dashboard",
     element: <DashBoard></DashBoard>,
     children: [
+      // students Routes
       {
-        path: "myclasses",
+        path: "mySelectedClasses",
         element: <MyClasses></MyClasses>,
       },
       {
@@ -62,6 +68,11 @@ const router = createBrowserRouter([
         path: "history",
         element: <PaymentHistory></PaymentHistory>,
       },
+      // {
+      //   path: "payment",
+      //   element: <Payment></Payment>,
+      // },
+      // Admin Routes
       {
         path: "allUsers",
         element: (
@@ -71,12 +82,33 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "instructors",
-        element: <InstructorsPage></InstructorsPage>,
+        path: "manageClasses",
+        element: (
+          <AdminRoute>
+            <ManageClasses></ManageClasses>
+          </AdminRoute>
+        ),
+      },
+      // {
+      //   path: "instructors",
+      //   element: <InstructorsPage></InstructorsPage>,
+      // },
+      // Instructor Routes
+      {
+        path: "addAClass",
+        element: (
+          <InstructorRoute>
+            <AddAClass></AddAClass>
+          </InstructorRoute>
+        ),
       },
       {
-        path: "payment",
-        element: <Payment></Payment>,
+        path: "myClasses",
+        element: (
+          <InstructorRoute>
+            <MyClassesInstructor></MyClassesInstructor>
+          </InstructorRoute>
+        ),
       },
     ],
   },

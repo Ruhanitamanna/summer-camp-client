@@ -13,7 +13,7 @@ const Allusers = () => {
   });
 
   const [disabledUser, setDisabledUser] = useState([]);
-  const [instructors, setInstructors] = useState([]);
+  // const [instructors, setInstructors] = useState([]);
 
   const handleMakeAdmin = (user) => {
     fetch(
@@ -41,7 +41,7 @@ const Allusers = () => {
 
   const handleMakeInstructor = (user) => {
     fetch(
-      `https://summer-camp-server-umber.vercel.app/users/Instructor/${user._id}`,
+      `https://summer-camp-server-umber.vercel.app/users/instructor/${user._id}`,
       {
         method: "PATCH",
       }
@@ -49,10 +49,10 @@ const Allusers = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.matchedCount > 0) {
+        if (data.matchedCount) {
           refetch();
           setDisabledUser([...disabledUser, user._id]);
-          setInstructors([...instructors, user]);
+          // setInstructors([...instructors, user]);
 
           Swal.fire({
             position: "top-end",

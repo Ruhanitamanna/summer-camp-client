@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import useClass from "../../hooks/useClass";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
+import CheckoutForm from "./CheckoutForm";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
 const MyClasses = () => {
   const [item, refetch] = useClass();
   const [axiosSecure] = useAxiosSecure();
+  const [selectedClass, setSelectedClass] = useState(0);
 
   const total = item.reduce((sum, item) => item.price + sum, 0);
 
@@ -87,11 +93,16 @@ const MyClasses = () => {
                       </button>
                     </th>
                     <th>
-                      <Link to={`/dashboard/payment?id=${raw._id}`}>
-                        <button className="btn btn-ghost bg-blue-200 btn-sm">
-                          Pay
-                        </button>
-                      </Link>
+                      <button
+                        className="btn btn-ghost bg-blue-200 btn-sm"
+                        onClick={() => {
+                          setSelectedClass(raw);
+
+                          window.my_modal_3.showModal(raw._id);
+                        }}
+                      >
+                        Pay
+                      </button>
                     </th>
                   </tr>
                 ))}
@@ -100,6 +111,20 @@ const MyClasses = () => {
           </div>
         </div>
       </div>
+      <dialog id="my_modal_3" className="modal">
+        <div method="dialog" className="modal-box">
+          <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+            ✕
+          </button>
+
+          <div></div>
+          {selectedClass && (
+            <Elements stripe={stripePromise}>
+              <CheckoutForm selectedClass={selectedClass}></CheckoutForm>
+            </Elements>
+          )}
+        </div>
+      </dialog>
     </div>
   );
 };
