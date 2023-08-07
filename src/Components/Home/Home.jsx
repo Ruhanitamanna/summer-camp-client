@@ -5,32 +5,26 @@ import PopularInstructers from "../PopularInstructers/PopularInstructers";
 import ExtraSection from "./ExtraSection/ExtraSection";
 
 const Home = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    document.body.classList.toggle("dark");
-  };
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div className={`mt-8 ${isDarkMode ? "dark" : ""}`}>
+    <div className={`mt-8 bg-gray-100 ${darkMode ? "dark:bg-gray-900" : ""}`}>
       <div className="justify-end">
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text">DARK/LIGHT Mode</span>
-            <input
-              type="checkbox"
-              className="toggle"
-              checked={isDarkMode}
-              onChange={toggleDarkMode}
-            />
-          </label>
-        </div>
+        <button
+          className=" ml-4 btn btn-circle btn-outline "
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          D
+        </button>
+        <br />
+        <br />
       </div>
-      <Banner></Banner>
-      <PopularClasses></PopularClasses>
-      <PopularInstructers></PopularInstructers>
-      <ExtraSection></ExtraSection>
+      <div className={`text-black ${darkMode ? "dark:text-white" : ""}`}>
+        <Banner></Banner>
+        <PopularClasses></PopularClasses>
+        <PopularInstructers></PopularInstructers>
+        <ExtraSection></ExtraSection>
+      </div>
     </div>
   );
 };
